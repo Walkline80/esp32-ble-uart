@@ -4,7 +4,7 @@
 
 ### 项目介绍
 
-[MicroPython for ESP32 开发板低功耗蓝牙（BLE）研究学习项目](https://gitee.com/walkline/esp32-ble)的分支项目，使用用`ESP32开发板`通过`UART`与其它设备交换数据
+[MicroPython for ESP32 开发板低功耗蓝牙（BLE）研究学习项目](https://gitee.com/walkline/esp32-ble)的分支项目，使用`ESP32开发板`通过`UART`与其它设备交换数据
 
 ### 如何使用呢？
 
