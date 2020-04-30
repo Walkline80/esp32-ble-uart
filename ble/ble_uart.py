@@ -8,9 +8,9 @@ import ubluetooth as bt
 from ble.tools import BLETools
 from ble.const import BLEConst
 
-__UART_UUID = bt.UUID("512f4174-89ef-11ea-bc55-0242ac130003")
-__TX_UUID = bt.UUID("d3c55e7a-89ef-11ea-bc55-0242ac130003")
-__RX_UUID = bt.UUID("dd608f2c-89ef-11ea-bc55-0242ac130003")
+__UART_UUID = bt.UUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
+__TX_UUID = bt.UUID("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
+__RX_UUID = bt.UUID("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
 
 __UART_SERVICE = (
 	__UART_UUID,
