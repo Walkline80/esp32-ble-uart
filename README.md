@@ -13,10 +13,34 @@
 * 把项目目录下的`main.py`和`ble`文件夹上传到开发板，并运行`main.py`文件
 * 使用安卓手机下载安装 [nRF Connect](https://github.com/NordicSemiconductor/Android-nRF-Connect/releases)
 * 在`nRF Connect`中搜索并连接默认名称为`mpy-uart`的设备
+
+	![](images/Scanner.png)
+
 * 然后按如下顺序操作：
-	1. 按一下开发板上的`BOOT`按键，板载 Led 点亮的同时手机会收到数据`on`，再次按下按键收到`off`
-	2. 手机上点`RX Characteristic`右侧的上箭头，在弹出的数据发送窗口中，以`byte`形式发送`0x01`或以`text`形式发送`on`，都可以点亮开发板的板载 Led
-	3. ~~手机上点`TX Characteristic`右侧的下箭头，可以读取到开发板上板载 Led 的状态数据，也就是`on`~~ **未验证**
+	1. 按一下开发板上的`BOOT`按键，板载 Led 点亮的同时手机上的`TX Characteristic`会收到数据`on`，再次按下按键收到`off`
+	2. 手机上点`RX Characteristic`右侧的上箭头，在弹出的数据发送窗口中发送`on`，可以点亮开发板的板载 Led
+
+		![](images/Devices.png)
+
+`REPL`中的完整输出内容如下：
+```docs
+activating ble...
+I (12270) BTDM_INIT: BT controller compile version [5aed448]
+I (24880) system_api: Base MAC address is not set, read default base MAC address from BLK0 of EFUSE
+I (24990) phy: phy_version: 4102, 2fa7a43, Jul 15 2019, 13:06:06, 0, 0
+GAP procedure initiated: stop advertising.
+ble activated
+GAP procedure initiated: advertise; disc_mode=2 adv_channel_map=7 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=800 adv_itvl_max=800
+advertising...
+>>> [79:75:C6:5B:08:1F] connected, handle: 0
+GATT procedure initiated: notify; att_handle=3
+GATT procedure initiated: notify; att_handle=3
+rx received: b'on'
+GATT procedure initiated: notify; att_handle=3
+[79:75:C6:5B:08:1F] disconnected, handle: 0
+GAP procedure initiated: advertise; disc_mode=2 adv_channel_map=7 own_addr_type=0 adv_filter_policy=0 adv_itvl_min=800 adv_itvl_max=800
+advertising...
+```
 
 ### 下载烧录自定义固件
 
