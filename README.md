@@ -1,39 +1,42 @@
-# ESP32 BLE UART
+<h1 align="center">ESP32 BLE - UART</h1>
 
-#### 介绍
-{**以下是码云平台说明，您可以替换此简介**
-码云是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+<p align="center"><img src="https://img.shields.io/badge/Licence-MIT-green.svg?style=for-the-badge" /></p>
 
-#### 软件架构
-软件架构说明
+### 项目介绍
 
+[MicroPython for ESP32 开发板低功耗蓝牙（BLE）研究学习项目](https://gitee.com/walkline/esp32-ble)的分支项目，使用用`ESP32开发板`通过`UART`与其它设备交换数据
 
-#### 安装教程
+### 如何使用呢？
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+* 下载并烧录自定义的固件到开发板
+* 如果你用的是官方最新固件的话可以参考`不想烧录自定义固件？`部分
+* 把项目目录下的`main.py`和`ble`文件夹上传到开发板，并运行`main.py`文件
+* 使用安卓手机下载安装 [nRF Connect](https://github.com/NordicSemiconductor/Android-nRF-Connect/releases)
+* 在`nRF Connect`中搜索并连接默认名称为`mpy-uart`的设备
+* 然后按如下顺序操作：
+	1. 按一下开发板上的`BOOT`按键，板载 Led 点亮的同时手机会收到数据`on`，再次按下按键收到`off`
+	2. 手机上点第二个`characteristic`右侧的上箭头，在弹出的数据发送窗口中，以`byte`形式发送`0x01`或以`text`形式发送`on`，都可以点亮开发板的板载 Led
+	3. 手机上点第一个`characteristic`右侧的下箭头，可以读取到开发板上板载 Led 的状态数据，也就是`on`
 
-#### 使用说明
+### 下载烧录自定义固件
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+访问 [自定义固件下载项目](https://gitee.com/walkline/esp32_firmware) 下载最新的自定义固件，并参考 [附录1：如何刷写固件](https://gitee.com/walkline/esp32_firmware#%E9%99%84%E5%BD%951%E5%A6%82%E4%BD%95%E5%88%B7%E5%86%99%E5%9B%BA%E4%BB%B6) 烧录固件到开发板
 
-#### 参与贡献
+### 不想烧录自定义固件？
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+当然没问题，不过要确认你现在的固件是**支持`ble`的**，然后
 
+* 下载 [const.py](https://gitee.com/walkline/micropython-beacon-library/raw/master/ble/const.py)
 
-#### 码云特技
+* 下载 [tools.py](https://gitee.com/walkline/micropython-beacon-library/raw/master/ble/tools.py)
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+保存到项目目录`ble`文件夹下，一起上传到开发板即可
+
+### 合作交流
+
+* 联系邮箱：<walkline@163.com>
+* QQ 交流群：
+    * 走线物联：163271910
+    * 扇贝物联：31324057
+
+<p align="center"><img src="https://gitee.com/walkline/WeatherStation/raw/docs/images/qrcode_walkline.png" width="300px" alt="走线物联"><img src="https://gitee.com/walkline/WeatherStation/raw/docs/images/qrcode_bigiot.png" width="300px" alt="扇贝物联"></p>
