@@ -83,8 +83,19 @@ class BLEUART:
 					self.__rx_cb(self.__read(self.__rx_handle)) # .decode().strip())
 
 	def write(self, data):
+		"""
+		将数据写入本地缓存，等待中心设备读取
+		"""
 		self.__write(self.__tx_handle, data)
-		self.__notify(self.__conn_handle, self.__tx_handle, data)
+
+	def send(self, data):
+		"""
+		将数据写入本地缓存，并推送到中心设备
+		"""
+		self.__write(self.__tx_handle, data)
+
+		if self.__conn_handle is not None:
+			self.__notify(self.__conn_handle, self.__tx_handle, data)
 
 
 def demo():
@@ -94,10 +105,11 @@ def demo():
 		print("rx received: {}".format(data))
 
 		led.value(1 if data == b'on' or data == b'\x01' else 0)
+		uart.write("on" if led.value() else "off")
 
 	def button_callback(pin):
 		led.value(not led.value())
-		uart.write("on" if led.value() else "off")
+		uart.send("on" if led.value() else "off")
 
 	ble = bt.BLE()
 	uart = BLEUART(ble, rx_callback)
