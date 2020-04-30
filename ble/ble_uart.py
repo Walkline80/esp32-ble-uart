@@ -9,8 +9,8 @@ from ble.tools import BLETools
 from ble.const import BLEConst
 
 __UART_UUID = bt.UUID("6E400001-B5A3-F393-E0A9-E50E24DCCA9E")
-__TX_UUID = bt.UUID("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
-__RX_UUID = bt.UUID("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
+__RX_UUID = bt.UUID("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")
+__TX_UUID = bt.UUID("6E400003-B5A3-F393-E0A9-E50E24DCCA9E")
 
 __UART_SERVICE = (
 	__UART_UUID,
@@ -80,13 +80,7 @@ class BLEUART:
 
 			if conn_handle == self.__conn_handle and value_handle == self.__rx_handle:
 				if self.__rx_cb:
-					self.__rx_cb(self.__read(self.__rx_handle)) # .decode().strip())
-
-	def write(self, data):
-		"""
-		将数据写入本地缓存，等待中心设备读取
-		"""
-		self.__write(self.__tx_handle, data)
+					self.__rx_cb(self.__read(self.__rx_handle))
 
 	def send(self, data):
 		"""
@@ -104,8 +98,8 @@ def demo():
 	def rx_callback(data):
 		print("rx received: {}".format(data))
 
-		led.value(1 if data == b'on' or data == b'\x01' else 0)
-		uart.write("on" if led.value() else "off")
+		led.value(1 if data == b'on' else 0)
+		uart.send("on" if led.value() else "off")
 
 	def button_callback(pin):
 		led.value(not led.value())
