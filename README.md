@@ -14,13 +14,13 @@
 * 使用安卓手机下载安装 [nRF Connect](https://github.com/NordicSemiconductor/Android-nRF-Connect/releases)
 * 在`nRF Connect`中搜索并连接默认名称为`mpy-uart`的设备
 
-	![](images/Scanner.png)
+	![](images/scanner.png)
 
 * 然后按如下顺序操作：
 	1. 按一下开发板上的`BOOT`按键，板载 Led 点亮的同时手机上的`TX Characteristic`会收到数据`on`，再次按下按键收到`off`
 	2. 手机上点`RX Characteristic`右侧的上箭头，在弹出的数据发送窗口中发送`on`，可以点亮开发板的板载 Led
 
-		![](images/Devices.png)
+		![](images/devices.png)
 
 `REPL`中的完整输出内容如下：
 ```docs
