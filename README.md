@@ -56,6 +56,10 @@ advertising...
 
 保存到项目目录`ble`文件夹下，一起上传到开发板即可
 
+### 视频演示
+
+[![](images/cover.png)](https://www.bilibili.com/video/BV1aQ4y1N7TM/)
+
 ### 合作交流
 
 * 联系邮箱：<walkline@163.com>
