@@ -12,11 +12,12 @@ def demo():
 	def rx_callback(data):
 		print("rx received: {}".format(data))
 
-		led.value(1 if data == b'on' or data == b'\x01' else 0)
+		led.value(1 if data == b'on' else 0)
+		uart.send("on" if led.value() else "off")
 
 	def button_callback(pin):
 		led.value(not led.value())
-		uart.write("on" if led.value() else "off")
+		uart.send("on" if led.value() else "off")
 
 	ble = bt.BLE()
 	uart = BLEUART(ble, rx_callback)
